@@ -14,6 +14,30 @@
       "label": "Google Analytics ID",
       "section": "global",
       "refresh": false
+    },
+    {
+      "id": "site_branding",
+      "label": "Show site branding",
+      "type": "checkbox",
+      "section": "global",
+      "default": false,
+      "refresh": true
+    },
+    {
+      "id": "show_site_title",
+      "label": "Show site title",
+      "type": "checkbox",
+      "section": "global",
+      "default": false,
+      "refresh": false
+    },
+    {
+      "id": "show_tagline",
+      "label": "Show site tagline",
+      "type": "checkbox",
+      "section": "global",
+      "default": false,
+      "refresh": false
     }
   ]
 }

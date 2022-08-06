@@ -173,6 +173,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'   => 'global.min.js',
 				'global' => true,
 			),
+			'wp-rig-material' => array(
+				'file'   => 'material.min.js',
+				'global' => true,
+			),
 		);
 
 		/**

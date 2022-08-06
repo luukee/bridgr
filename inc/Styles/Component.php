@@ -106,6 +106,11 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'wp-rig-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		}
 
+		$material_icons_url = 'https://fonts.googleapis.com/icon?family=Material+Icons&ver=2.2.0';
+		if ( ! empty( $material_icons_url ) ) {
+			wp_enqueue_style( 'wp-rig-material-icons', $material_icons_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		}
+
 		$css_uri = get_theme_file_uri( '/assets/css/' );
 		$css_dir = get_theme_file_path( '/assets/css/' );
 
@@ -283,6 +288,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'   => 'global.min.css',
 				'global' => true,
 			),
+			'wp-rig-material'     => array(
+				'file'   => 'material.min.css',
+				'global' => true,
+			),
 			'wp-rig-comments'   => array(
 				'file'             => 'comments.min.css',
 				'preload_callback' => function() {
@@ -360,8 +369,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = array(
-			'Roboto Condensed' => array( '400', '400i', '700', '700i' ),
-			'Crimson Text'     => array( '400', '400i', '600', '600i' ),
+			'Roboto' => array( '300', '400', '500' ),
 		);
 
 		/**

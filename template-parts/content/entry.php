@@ -9,7 +9,7 @@ namespace WP_Rig\WP_Rig;
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry mdl-cell mdl-cell--12-col' ); ?>>
 	<?php
 	get_template_part( 'template-parts/content/entry_header', get_post_type() );
 

@@ -19,17 +19,20 @@ get_header();
 wp_rig()->print_styles( 'wp-rig-content' );
 
 ?>
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main mdl-layout__content">
 		<?php
 		if ( have_posts() ) {
 
 			get_template_part( 'template-parts/content/page_header' );
 
-			while ( have_posts() ) {
+			while ( have_posts() ) :
 				the_post();
-
-				get_template_part( 'template-parts/content/entry', get_post_type() );
-			}
+				?>
+				<div class="mdl-grid">
+					<?php get_template_part( 'template-parts/content/entry', get_post_type() ); ?>
+				</div>
+				<?php
+			endwhile;
 
 			if ( ! is_singular() ) {
 				get_template_part( 'template-parts/content/pagination' );

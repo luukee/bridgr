@@ -9,6 +9,7 @@ namespace WP_Rig\WP_Rig\Nav_Menus;
 
 use WP_Rig\WP_Rig\Component_Interface;
 use WP_Rig\WP_Rig\Templating_Component_Interface;
+use WP_Rig\WP_Rig\Walker_Nav_Menu;
 use WP_Post;
 use function add_action;
 use function add_filter;
@@ -16,6 +17,7 @@ use function register_nav_menus;
 use function esc_html__;
 use function has_nav_menu;
 use function wp_nav_menu;
+
 
 /**
  * Class for managing navigation menus.
@@ -27,6 +29,7 @@ use function wp_nav_menu;
 class Component implements Component_Interface, Templating_Component_Interface {
 
 	const PRIMARY_NAV_MENU_SLUG = 'primary';
+	const DRAWER_NAV_MENU_SLUG = 'drawer';
 
 	/**
 	 * All theme settings - from JSON file.
@@ -58,8 +61,21 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function hooks() {
 		add_action( 'after_setup_theme', array( $this, 'action_register_nav_menus' ) );
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'filter_primary_nav_menu_dropdown_symbol' ), 10, 4 );
+		add_filter( 'nav_menu_link_attributes', array( $this, 'add_menu_link_class' ), 1, 3 );
 		add_filter( 'wp_rig_menu_toggle_button', array( $this, 'customize_mobile_menu_toggle' ) );
 		add_filter( 'wp_rig_site_navigation_classes', array( $this, 'customize_mobile_menu_nav_classes' ) );
+	}
+
+	/**
+	 * Add class to menu link.
+	 *
+	 * @param mixed $atts Menu item attributes.
+	 * @param mixed $item The menu item.
+	 * @param mixed $args The arguments.
+	 */
+	public function add_menu_link_class( $atts, $item, $args ) {
+		$atts['class'] = 'mdl-navigation__link';
+		return $atts;
 	}
 
 	/**
@@ -73,6 +89,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return array(
 			'is_primary_nav_menu_active' => array( $this, 'is_primary_nav_menu_active' ),
 			'display_primary_nav_menu'   => array( $this, 'display_primary_nav_menu' ),
+			'is_drawer_nav_menu_active' => array( $this, 'is_drawer_nav_menu_active' ),
+			'display_drawer_nav_menu'   => array( $this, 'display_drawer_nav_menu' ),
 		);
 	}
 
@@ -91,6 +109,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		register_nav_menus(
 			array(
 				static::PRIMARY_NAV_MENU_SLUG => esc_html__( 'Primary', 'wp-rig' ),
+				static::DRAWER_NAV_MENU_SLUG => esc_html__( 'Drawer', 'wp-rig' ),
 			)
 		);
 	}
@@ -140,6 +159,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
+	 * Checks whether the drawer navigation menu is active.
+	 *
+	 * @return bool True if the drawer navigation menu is active, false otherwise.
+	 */
+	public function is_drawer_nav_menu_active() : bool {
+		return (bool) has_nav_menu( static::DRAWER_NAV_MENU_SLUG );
+	}
+
+	/**
 	 * Displays the primary navigation menu.
 	 *
 	 * @param array $args Optional. Array of arguments. See `wp_nav_menu()` documentation for a list of supported
@@ -151,6 +179,22 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$args['theme_location'] = static::PRIMARY_NAV_MENU_SLUG;
+
+		wp_nav_menu( $args );
+	}
+
+	/**
+	 * Displays the drawer navigation menu.
+	 *
+	 * @param array $args Optional. Array of arguments. See `wp_nav_menu()` documentation for a list of supported
+	 *                    arguments.
+	 */
+	public function display_drawer_nav_menu( array $args = array() ) {
+		if ( ! isset( $args['container'] ) ) {
+			$args['container'] = '';
+		}
+
+		$args['theme_location'] = static::DRAWER_NAV_MENU_SLUG;
 
 		wp_nav_menu( $args );
 	}
@@ -173,6 +217,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string Mobile Nav Toggle classes.
 	 */
 	public function customize_mobile_menu_nav_classes() {
-		return esc_html__( 'main-navigation nav--toggle-sub nav--toggle-small icon-nav', 'wp-rig' );
+		return esc_html__( 'mdl-navigation main-navigation nav--toggle-sub nav--toggle-small icon-nav', 'wp-rig' );
 	}
 }

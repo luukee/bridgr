@@ -63,7 +63,7 @@
 	padding-left: 3.5em;
 }
 
-.page-content > *,
+/* .page-content > *,
 .entry-content > *,
 .entry-summary > * {
 	margin-right: auto;
@@ -71,7 +71,7 @@
 	padding-right: 1.5rem;
 	padding-left: 1.5rem;
 	max-width: var(--content-width);
-}
+} */
 
 .page-header,
 .entry-header,
@@ -84,7 +84,7 @@
 	margin-bottom: 1.5em;
 }
 
-.page-content > *,
+/* .page-content > *,
 .entry-content > *,
 .entry-summary > *,
 .page-header,
@@ -99,7 +99,7 @@
 	padding-right: 1.5rem;
 	padding-left: 1.5rem;
 	max-width: var(--content-width);
-}
+} */
 
 @media (--content-query) {
 
