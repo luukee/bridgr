@@ -7,9 +7,12 @@
 
 namespace WP_Rig\WP_Rig;
 
+if ( is_front_page() ) :
+	get_template_part( 'template-parts/content/entry_content-front-page', get_post_type() );
+else :
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry mdl-grid' ); ?>>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry mdl-cell mdl-cell--12-col' ); ?>>
 	<?php
 	get_template_part( 'template-parts/content/entry_header', get_post_type() );
 
@@ -22,8 +25,9 @@ namespace WP_Rig\WP_Rig;
 	get_template_part( 'template-parts/content/entry_footer', get_post_type() );
 	?>
 </article><!-- #post-<?php the_ID(); ?> -->
+	<?php
+endif;
 
-<?php
 if ( is_singular( get_post_type() ) ) {
 	// Show post navigation only when the post type is 'post' or has an archive.
 	if ( 'post' === get_post_type() || get_post_type_object( get_post_type() )->has_archive ) {

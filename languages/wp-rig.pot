@@ -32,7 +32,7 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: header.php:36
+#: header.php:39
 msgid "Skip to content"
 msgstr ""
 
@@ -81,11 +81,19 @@ msgstr ""
 msgid "No theme component with the slug %s exists."
 msgstr ""
 
-#: inc/Accessibility/Component.php:69
+#: page-templates/front-page.php:3
+msgid "Front Page"
+msgstr ""
+
+#: page-templates/front-page.php:98
+msgid "(Edit)"
+msgstr ""
+
+#: inc/Accessibility/Component.php:69, inc/Material_Icons/Component.php:66
 msgid "Expand child menu"
 msgstr ""
 
-#: inc/Accessibility/Component.php:70
+#: inc/Accessibility/Component.php:70, inc/Material_Icons/Component.php:67
 msgid "Collapse child menu"
 msgstr ""
 
@@ -97,7 +105,7 @@ msgstr ""
 msgid "Theme Options"
 msgstr ""
 
-#: inc/Editor/Component.php:65, inc/Nav_Menus/Component.php:93
+#: inc/Editor/Component.php:65, inc/Nav_Menus/Component.php:111
 msgid "Primary"
 msgstr ""
 
@@ -179,12 +187,16 @@ msgstr ""
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: inc/Nav_Menus/Component.php:164, template-parts/header/navigation.php:40
+#: inc/Nav_Menus/Component.php:112
+msgid "Drawer"
+msgstr ""
+
+#: inc/Nav_Menus/Component.php:208
 msgid "Open menu"
 msgstr ""
 
-#: inc/Nav_Menus/Component.php:176
-msgid "main-navigation nav--toggle-sub nav--toggle-small icon-nav"
+#: inc/Nav_Menus/Component.php:220
+msgid "mdl-navigation main-navigation nav--toggle-sub nav--toggle-small icon-nav"
 msgstr ""
 
 #. translators: %s: JS handle
@@ -192,24 +204,28 @@ msgstr ""
 msgid "Invalid theme JS handle: %s"
 msgstr ""
 
-#: inc/Sidebars/Component.php:69
+#: inc/Sidebars/Component.php:72
 msgid "Sidebar"
 msgstr ""
 
-#: inc/Sidebars/Component.php:71
+#: inc/Sidebars/Component.php:74, inc/Sidebars/Component.php:83
 msgid "Add widgets here."
 msgstr ""
 
+#: inc/Sidebars/Component.php:81
+msgid "Footer"
+msgstr ""
+
 #. translators: %s: stylesheet handle
-#: inc/Styles/Component.php:237
+#: inc/Styles/Component.php:242
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
-#: template-parts/content/entry-attachment.php:33, template-parts/content/entry.php:32
+#: template-parts/content/entry-attachment.php:33, template-parts/content/entry.php:36
 msgid "Previous:"
 msgstr ""
 
-#: template-parts/content/entry-attachment.php:43, template-parts/content/entry.php:33
+#: template-parts/content/entry-attachment.php:43, template-parts/content/entry.php:37
 msgid "Next:"
 msgstr ""
 
@@ -359,8 +375,4 @@ msgstr ""
 
 #: template-parts/header/navigation.php:16
 msgid "Main menu"
-msgstr ""
-
-#: template-parts/header/navigation.php:41
-msgid "Menu"
 msgstr ""

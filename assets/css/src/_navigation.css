@@ -10,3 +10,67 @@
 .mdl-layout__drawer {
 	border-right: none;
 }
+
+.mdl-layout__drawer-button[aria-expanded="true"] .material-icons {
+	width: 0;
+	color: transparent;
+}
+
+.mdl-layout__drawer-button[aria-expanded="true"] .material-icons::before {
+	transform: translateY(9px) rotate(45deg);
+}
+
+.mdl-layout__drawer-button[aria-expanded="true"] .material-icons::after {
+	transform: translateY(-9px) rotate(-45deg);
+}
+.mdl-layout__drawer-button {
+	width: 60px;
+	height: 60px;
+	z-index: 9;
+	border-radius: 50%;
+	margin: 10px;
+	position: absolute;
+	cursor: pointer;
+	transition-duration: 0.66s;
+	transition-timing-function: swing;
+}
+
+.mdl-layout__drawer-button .material-icons {
+	width: 40px;
+	height: 3px;
+	position: absolute;
+	color: transparent;
+	background-color: #fff;
+	top: 28px;
+	left: 15px;
+	transition-duration: 0.5s;
+}
+
+.mdl-layout__drawer-button .material-icons:before,
+.mdl-layout__drawer-button .material-icons:after {
+	width: 30px;
+	height: 3px;
+	background-color: white;
+	content: "";
+	position: absolute;
+	left: 0;
+	opacity: 1;
+	-webkit-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+}
+
+.mdl-layout__drawer-button .material-icons:before {
+	top: -9px;
+}
+
+.mdl-layout__drawer-button .material-icons:after {
+	top: 9px;
+}
+
+.lower-screen {
+	padding: 60px 0 20px 0;
+	overflow-y: scroll;
+	height: 450px;
+	transition-duration: 0.66s;
+	transition-timing-function: swing;
+}

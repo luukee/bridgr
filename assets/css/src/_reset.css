@@ -141,6 +141,12 @@ sup {
 
 sub {
 	bottom: -0.25em;
+	color: var(--color-theme-secondary);
+	&::after {
+		content: "–––––––––––";
+		letter-spacing: -3px;
+		padding-left: 5px;
+	}
 }
 
 sup {

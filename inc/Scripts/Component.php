@@ -204,10 +204,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				array(
 					'global'   => false,
 					'loading'  => null,
-					'footer'   => false,
+					'footer'   => true,
 					'deps'     => array(),
 					'localize' => null,
-
 				),
 				$data
 			);
