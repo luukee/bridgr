@@ -64,12 +64,7 @@ if ( $feat_img_row_h ) {
 <style>@media screen and (min-width: 60em) {.banner__feat-img_wrap {<?php echo wp_kses( $feat_img_row_h, 'post' ); ?>}}</style>
 <main id="primary" class="site-main mdl-layout__content">
 	<?php
-	while ( have_posts() ) {
-		the_post();
-		get_template_part( 'template-parts/content/entry', 'page' );
-	}
-	?>
-	<?php
+	get_template_part( 'template-parts/header/front-page_header' );
 	/**
 	 * How to speed up ACF queries.
 	 * Link: https://www.brianshim.com/webtricks/speed-up-wordpress-advanced-custom-fields-queries/
@@ -96,8 +91,9 @@ if ( $feat_img_row_h ) {
 		}
 	}
 	edit_post_link( __( '(Edit)', 'wp-rig' ), '<span class="edit-link">', '</span>' );
+	get_footer();
 	?>
 </main><!-- #primary -->
 <?php
-get_footer();
+
 

@@ -10,17 +10,12 @@
  */
 
 namespace WP_Rig\WP_Rig;
-wp_rig()->print_styles( 'wp-rig-footer' );
+wp_rig()->print_styles( 'wp-rig-footer', 'wp-rig-content' );
 ?>
 	<footer id="colophon" class="mdl-mini-footer">
-		<div class="mdl-mini-footer__left-section">
+		<!-- <div class="mdl-mini-footer__left-section"> -->
 			<?php wp_rig()->display_footer_sidebar(); ?>
-			<div class="mdl-logo">Title</div>
-			<ul class="mdl-mini-footer__link-list">
-			<li><a href="#">Help</a></li>
-			<li><a href="#">Privacy & Terms</a></li>
-			</ul>
-		</div>
+		<!-- </div> -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

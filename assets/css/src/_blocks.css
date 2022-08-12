@@ -133,7 +133,6 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 	width: inherit;
 }
 
-
 .blocks-gallery-item:last-child:nth-child(odd) {
 	grid-column: span 2;
 }

@@ -1,0 +1,14 @@
+@import "_custom-properties.css";
+
+.acf-field-message {
+	background: var(--border-color-light);
+
+	& .acf-label {
+		margin-bottom: 0;
+	}
+}
+
+.acf-flexible-content .layout .acf-fc-layout-handle {
+	background: var(--color-theme-blue);
+	color: #fff;
+}

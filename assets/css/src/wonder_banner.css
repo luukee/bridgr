@@ -5,6 +5,10 @@
 	background-size: cover;
 	overflow: hidden;
 
+	@media (--sidebar-query) {
+		padding: 3em 0;
+	}
+
 	& .col {
 		z-index: 1;
 	}
@@ -13,6 +17,7 @@
 		align-items: center;
 		margin-top: 1.25rem;
 		margin-bottom: 1.25rem;
+
 		@media (--sidebar-query) {
 			margin-top: 3.25rem;
 			margin-bottom: 3.25rem;
@@ -51,21 +56,27 @@
 
 .banner-txt {
 	padding: 2em;
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow-popup);
+	border-radius: var(--borderRadius);
+	box-shadow: var(--boxShadowPopup);
+
+	@media (--sidebar-query) {
+		padding: 4em;
+	}
 }
 
 .mdl-grid__flex {
 	flex-wrap: nowrap;
+
 	& .banner-txt {
 		z-index: 6;
 	}
+
 	& img {
-		min-width: 100%;
-		max-width: 135%;
-		height: auto;
-		transform: translate(-30%, -50%);
-		position: absolute;
 		z-index: 0;
+
+		@media (--sidebar-query) {
+			max-height: 70vh;
+			width: auto;
+		}
 	}
 }

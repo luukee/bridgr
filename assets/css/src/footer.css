@@ -1,3 +1,7 @@
 .mdl-mini-footer {
 	background-color: var(--color-theme-secondary);
 }
+
+.widget-full-width {
+	width: 100%;
+}

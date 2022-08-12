@@ -62,7 +62,7 @@ test( 'partials are imported', ( done ) => {
 		const file = files[ 0 ];
 		const fileContents = file.contents.toString( 'utf-8' );
 		expect( fileContents ).toContain( ':root' );
-		expect( fileContents ).toContain( '--global-font-color:#333' );
+		expect( fileContents ).toContain( '--bodyFontColor:#333' );
 	}
 
 	pump( [

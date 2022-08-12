@@ -76,12 +76,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'after_widget'  => '</section>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',
-			),
+			)
+		);
+		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Footer', 'wp-rig' ),
 				'id'            => static::FOOTER_SIDEBAR_SLUG,
 				'description'   => esc_html__( 'Add widgets here.', 'wp-rig' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'before_widget' => '<section id="%1$s" class="widget widget-full-width %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h3 class="widget-title">',
 				'after_title'   => '</h3>',

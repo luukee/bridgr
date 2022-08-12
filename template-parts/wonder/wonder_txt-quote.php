@@ -14,6 +14,7 @@ $bk_pos     = get_post_meta( get_the_ID(), 'layouts_' . $count . '_bk_pos', true
 $txt        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_txt', true );
 $btn        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_btn', true );
 $section_id = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_id', true );
+$flip        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_flip', true );
 
 if ( $bk_color ) {
 	$bk_color = 'background-color:' . $bk_color . ';';
@@ -33,18 +34,24 @@ if ( $btn ) :
 else :
 	$btn = '';
 endif;
+
+if ( $flip ) {
+	$flip = '-flip';
+} else {
+	$flip = '';
+}
 $quote = get_post_meta( get_the_ID(), 'layouts_' . $count . '_quote', true );
 $the_content = apply_filters( 'the_content', $txt );
 ?>
-<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section txt-quote" style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $bk_img ); ?><?php echo esc_html( $bk_pos ); ?>;">
-	<div class="wrap grid grid__half">
-		<div class="col animate">
+<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-quote" style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $bk_img ); ?><?php echo esc_html( $bk_pos ); ?>;">
+	<div class="wrap mdl-grid<?php echo esc_html( $flip ); ?>">
+		<div class="col animate mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet<?php echo esc_html( ' ' . $flip ); ?>">
 			<?php echo wp_kses( $the_content, 'post' ); ?>
 			<?php if ( $btn ) : ?>
-				<a href="<?php echo esc_url( $btn_url ); ?>" <?php echo wp_kses( $btn_color, 'post' ); ?> class="button"><?php echo wp_kses( $btn_txt, 'post' ); ?></a>
+				<a href="<?php echo esc_url( $btn_url ); ?>" <?php echo wp_kses( $btn_color, 'post' ); ?> class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><?php echo wp_kses( $btn_txt, 'post' ); ?></a>
 			<?php endif; ?>
 		</div>
-		<div class="col animate">
+		<div class="col animate mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
 			<?php echo wp_kses( $quote, 'post' ); ?>
 		</div>
 	</div>

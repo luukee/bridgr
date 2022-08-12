@@ -64,3 +64,9 @@ require get_template_directory() . '/inc/functions.php';
 
 // Initialize the theme.
 call_user_func( 'WP_Rig\WP_Rig\wp_rig' );
+
+// ACF styles enable:
+add_action('acf/input/admin_enqueue_scripts', 'wp_rig_acf_admin_enqueue_scripts');
+function wp_rig_acf_admin_enqueue_scripts() {
+	wp_enqueue_style( 'acf-styles', get_stylesheet_directory_uri() . '/assets/css/editor/acf-styles.min.css', false, '1.0.0' );
+}

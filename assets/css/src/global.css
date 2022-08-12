@@ -25,9 +25,12 @@
 @import "_animations.css";
 @import "_material.css";
 @import "_typography.css";
+
 /* @import "_elements.css"; */
-/* @import "_links.css"; */
+@import "_links.css";
+
 /* @import "_accessibility.css"; */
+
 /* @import "_layouts.css"; */
 @import "_forms.css";
 @import "_headers.css";
@@ -45,11 +48,12 @@
 	max-width: var(--content-width);
 	overflow: hidden;
 	padding: 0 1.5rem 2em;
-	font-family: var(--highlight-font-family);
+	font-family: var(--fontFamily);
 	font-stretch: condensed;
 }
 
 @media (--content-query) {
+
 	.site-main .comment-navigation,
 	.site-main .posts-navigation,
 	.site-main .post-navigation,
@@ -78,7 +82,7 @@
 }
 
 .post-navigation-sub span {
-	color: var(--global-font-color);
+	color: var(--bodyFontColor);
 	text-decoration: none;
 	display: inline-block;
 }
@@ -144,7 +148,7 @@
 .site-footer {
 	margin: 1em 0 0;
 	padding: 2em 0;
-	font-family: var(--highlight-font-family);
+	font-family: var(--fontFamily);
 	font-stretch: condensed;
 }
 
@@ -160,6 +164,7 @@
 .infinite-scroll .posts-navigation,
 .infinite-scroll .pagination,
 .infinite-scroll.neverending .site-footer {
+
 	/* Theme Footer (when set to scrolling) */
 	display: none;
 }
@@ -168,4 +173,22 @@
 were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+
+.grid {
+	display: grid;
+}
+
+.mobile-only {
+
+	@media (--content-query) {
+		display: none;
+	}
+}
+
+.desktop-only {
+
+	@media (--narrow-menu-query) {
+		display: none;
+	}
 }

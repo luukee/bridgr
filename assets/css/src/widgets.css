@@ -116,7 +116,7 @@
 }
 
 .rssSummary {
-	font-family: var(--global-font-family);
+	font-family: var(--fontFamily);
 	padding: 0.5em 0;
 	font-size: 0.9em;
 	line-height: 1.3;

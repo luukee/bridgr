@@ -16,6 +16,12 @@
       "refresh": false
     },
     {
+      "id": "site_description",
+      "label": "Site description",
+      "section": "global",
+      "refresh": false
+    },
+    {
       "id": "site_branding",
       "label": "Show site branding",
       "type": "checkbox",

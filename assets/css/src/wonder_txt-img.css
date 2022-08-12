@@ -4,3 +4,15 @@
 		margin-bottom: 0;
 	}
 }
+
+.caption .copy__title {
+	margin-top: 0;
+}
+
+.section__height-medium {
+	min-height: 55vh;
+}
+
+.section__height-viewport {
+	min-height: 100vh;
+}

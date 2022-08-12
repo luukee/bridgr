@@ -10,10 +10,10 @@ input,
 select,
 optgroup,
 textarea {
-	color: var(--global-font-color);
-	font-family: var(--global-font-family);
-	font-size: var(--font-size-regular);
-	line-height: var(--global-font-line-height);
+	color: var(--bodyFontColor);
+	font-family: var(--fontFamily);
+	font-size: var(--fontSizeRegular);
+	line-height: var(--bodyLineHeight);
 }
 /* stylelint-enable */
 
@@ -23,50 +23,54 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--highlight-font-family);
+	font-family: var(--fontFamily);
 	font-stretch: condensed;
 	clear: both;
 }
+/* stylelint-disable */
 
-h1 {
-	font-weight: 300;
-	font-size: 96px;
-	line-height: 112px;
-	letter-spacing: -1.5px;
+/* Define your outer sections here */
+.copy.wonder-section {
+	@media (--content-query) {
+		--titleFontSize: 36px;
+		--titleLineHeight: 1.263157895;
+		--titleLetterSpacing: -0.2px;
+	}
 }
 
-h2 {
-	font-weight: 300;
-	font-size: 60px;
-	line-height: 72px;
-	letter-spacing: -0.5px;
+.copy {
+	--titleFont: var(--titleWeight) var(--titleFontSize) /
+		var(--titleLineHeight) var(--fontFamily);
+	--captionFont: var(--fontWeightBold) var(--captionFontSize, 19px) /
+		var(--captionLineHeight, 1.555555556) var(--fontFamily);
+	--bodyFont: var(--fontWeightLight) var(--bodyFontSize, 19px) /
+		var(--bodyLineHeight, 1.555555556) var(--fontFamily);
 }
 
+.copy__title {
+	font: var(--titleFont);
+	color: var(--titleColor);
+	letter-spacing: var(--titleLetterSpacing, inherit);
+}
+
+.copy__caption {
+	font: var(--captionFont);
+	color: var(--accentColor);
+	letter-spacing: var(--bodyLetterSpacing);
+}
 h3 {
-	font-weight: 400;
-	font-size: 48px;
-	line-height: 56px;
+	&.copy__caption {
+		@media (--content-query) {
+			font-size: 25px;
+		}
+	}
 }
-
-h4 {
-	font-weight: 400;
-	font-size: 34px;
-	line-height: 36px;
+.copy__body {
+	font: var(--bodyFont);
+	color: var(--textColor);
+	letter-spacing: var(--bodyLetterSpacing);
 }
-
-h5 {
-	font-weight: 400;
-	font-size: 24px;
-	line-height: 24px;
-	letter-spacing: 0.18px;
-}
-
-h6 {
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 24px;
-	letter-spacing: 0.15px;
-}
+/* stylelint-enable */
 
 .entry-title-singular,
 .page-title {
@@ -96,13 +100,14 @@ blockquote {
 	line-height: 40px;
 	letter-spacing: 1.75px;
 	padding-left: 1em;
+
 	&::before {
 		left: 4px;
 		content: &ldquo;
 		font-size: 1.5em;
 	}
+
 	&::after {
-		left: 0;
 		content: &rdquo;
 		font-size: 1.5em;
 	}
@@ -111,10 +116,8 @@ blockquote {
 .entry-content > blockquote {
 	padding-left: 2em;
 	margin-left: 1.5rem;
-}
 
-@media (--content-query) {
-	.entry-content > blockquote {
+	@media (--content-query) {
 		margin-left: auto;
 	}
 }
@@ -125,6 +128,10 @@ cite {
 	padding-left: 2em;
 	position: relative;
 	font-style: normal;
+	font: var(--captionFont);
+	&::before {
+		content: "– ";
+	}
 }
 
 address {
@@ -168,9 +175,17 @@ big {
 	font-size: 125%;
 }
 
+sub {
+	text-transform: uppercase;
+	color: var(--color-theme-blue-light);
+	&::after {
+		content: "–––––––––––";
+		letter-spacing: -3px;
+		padding-left: 5px;
+	}
+}
+
 p {
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 24px;
-	letter-spacing: 0.5px;
+	font: var(--bodyFont);
+	letter-spacing: var(--bodyLetterSpacing);
 }
