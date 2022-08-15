@@ -177,7 +177,7 @@ big {
 
 sub {
 	text-transform: uppercase;
-	color: var(--color-theme-blue-light);
+	color: var(--color-theme-secondary);
 	&::after {
 		content: "–––––––––––";
 		letter-spacing: -3px;

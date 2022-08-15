@@ -24,7 +24,7 @@
 
 	/* titles */
 	--titleFontSize: 34px;
-	--titleLineHeight: 1.6;
+	--titleLineHeight: 1.2;
 	--titleLetterSpacing: 0.2px;
 	--titleWeight: 400;
 
@@ -53,6 +53,7 @@
 	--border-color-dark: #333;
 	--border-color-light: #ccc;
 	--color-link: #0073aa;
+	--color-link-nav: #fff;
 	--color-link-visited: #333;
 	--color-link-active: #00a0d2;
 	--color-quote-border: #000;
@@ -60,15 +61,14 @@
 
 	/* Custom editor colors */
 	--color-theme-primary: #002542;
-	--color-theme-secondary: #002d50;
+	--color-theme-secondary: #00a5cc;
 	--color-theme-magenta: #db1f8f;
 	--color-theme-purple: #871fff;
 	--color-theme-green: #00ccc2;
 	--color-theme-blue: #00589d;
-	--color-theme-blue-light: #00a5cc;
 	--color-theme-orange: #ed8100;
 	--color-theme-yellow: #f1c40f;
-	--color-theme-black: #202020;
+	--color-theme-black: #000;
 	--color-theme-grey: #95a5a6;
 	--color-theme-white: #ecf0f1;
 	--color-custom-daylight: #97c0b7;

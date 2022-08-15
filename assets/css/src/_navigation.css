@@ -1,6 +1,6 @@
-
 .mdl-layout__drawer {
-	background-color: var(--color-theme-secondary);
+	background-color: var(--color-theme-black);
+	box-shadow: var(--boxShadowPopup);
 }
 
 .mdl-layout__drawer > .mdl-layout__title {
@@ -23,6 +23,7 @@
 .mdl-layout__drawer-button[aria-expanded="true"] .material-icons::after {
 	transform: translateY(-9px) rotate(-45deg);
 }
+
 .mdl-layout__drawer-button {
 	width: 60px;
 	height: 60px;
@@ -46,8 +47,8 @@
 	transition-duration: 0.5s;
 }
 
-.mdl-layout__drawer-button .material-icons:before,
-.mdl-layout__drawer-button .material-icons:after {
+.mdl-layout__drawer-button .material-icons::before,
+.mdl-layout__drawer-button .material-icons::after {
 	width: 30px;
 	height: 3px;
 	background-color: white;
@@ -59,11 +60,11 @@
 	transition-duration: 0.5s;
 }
 
-.mdl-layout__drawer-button .material-icons:before {
+.mdl-layout__drawer-button .material-icons::before {
 	top: -9px;
 }
 
-.mdl-layout__drawer-button .material-icons:after {
+.mdl-layout__drawer-button .material-icons::after {
 	top: 9px;
 }
 

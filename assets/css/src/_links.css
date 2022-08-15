@@ -8,6 +8,12 @@ a {
 	color: var(--color-link);
 }
 /* stylelint-enable */
+.mdl-navigation .mdl-navigation__link.menu-item {
+	color: var(--color-link-nav);
+}
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+	background-color: var(--color-theme-secondary);
+}
 
 a:visited {
 	color: var(--color-link-visited);

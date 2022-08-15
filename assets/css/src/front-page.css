@@ -39,6 +39,7 @@ small {
 		@media (--content-query) {
 			padding-right: 1em;
 			padding-left: 1em;
+			align-content: center;
 		}
 
 		&.narrow {
@@ -60,6 +61,10 @@ small {
 		padding: 1em 1em 0 1em;
 		opacity: 0;
 		transition: opacity 0.2s linear;
+
+		@media (--content-query) {
+			padding: 2.5em;
+		}
 	}
 
 	& figure {
@@ -118,10 +123,6 @@ small {
 
 		&.caption {
 			border-radius: var(--borderRadius);
-
-			@media (--sidebar-query) {
-				padding: 9%;
-			}
 		}
 	}
 
@@ -212,6 +213,7 @@ small {
 
 	@media (--content-query) {
 		align-items: center;
+		padding: 3em;
 	}
 
 	@media (--sidebar-query) {
@@ -230,6 +232,7 @@ small {
 		align-items: start;
 		justify-content: space-around;
 		margin-top: 3em;
+		margin-bottom: 3em;
 	}
 
 	@media (--sidebar-query) {
@@ -280,9 +283,9 @@ small {
 }
 
 .mdl-button--raised.mdl-button--colored {
-	background: var(--color-theme-secondary);
+	background: var(--color-theme-primary);
 
 	&:hover {
-		background: var(--color-theme-blue-light);
+		background: var(--color-theme-secondary) !important;
 	}
 }

@@ -75,13 +75,14 @@ if ( ! empty( $btn_color ) ) {
 	$btn_color = ' style="background-color:' . $btn_color . ';"';
 }
 
-if ( $img_width && '' === $flip ) {
-	$img_width = ' ' . $img_width;
-} elseif ( $img_width && ' flip' === $flip ) {
-	$img_width = ' ' . $img_width . '-flip';
-} else {
-	$img_width = ' grid__half';
-}
+
+// if ( $img_width && '' === $flip ) {
+// 	$img_width = ' ' . $img_width;
+// } elseif ( $img_width && ' flip' === $flip ) {
+// 	$img_width = ' ' . $img_width . '-flip';
+// } else {
+// 	$img_width = ' grid__half';
+// }
 
 if ( 'default' !== $section_height ) {
 	$section_height = ' section__height-' . $section_height;
@@ -89,15 +90,22 @@ if ( 'default' !== $section_height ) {
 	$section_height = '';
 }
 
+if ( 'third' === $img_width ) {
+	$img_width = 'mdl-cell--8-col';
+	$txt_width = 'mdl-cell--4-col';
+} else {
+	$img_width = 'mdl-cell--6-col';
+	$txt_width = $img_width;
+}
 ?>
 <section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-img"
 	<?php
 	if ( ! empty( $bk_color ) || ! empty( $border ) ) :
 		?>
 	style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $border ); ?>"<?php endif; ?>>
-	<figure class="wrap mdl-grid<?php echo esc_html( $img_width ); ?><?php echo esc_html( $section_height ); ?>">
+	<figure class="wrap mdl-grid <?php echo esc_html( $section_height ); ?>">
 		<?php if ( $img ) : ?>
-			<div class="animate mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet <?php echo esc_html( $flip ); ?> col">
+			<div class="animate mdl-cell <?php echo esc_html( $img_width ); ?> mdl-cell--12-col-tablet <?php echo esc_html( $flip ); ?> col">
 				<?php if ( $modal_or_link ) : ?>
 					<a href="#open-modal-<?php echo esc_html( $count ); ?>">
 						<div class="img-wrap <?php if ( $overlap ) { echo 'overlap'; }; ?>">
@@ -120,7 +128,7 @@ if ( 'default' !== $section_height ) {
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
-		<figcaption class="animate mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet caption col" <?php echo wp_kses( $txt_background_color, 'post' ); ?>>
+		<figcaption class="animate mdl-cell caption col <?php echo esc_html( $txt_width ); ?> mdl-cell--12-col-tablet" <?php echo wp_kses( $txt_background_color, 'post' ); ?>>
 			<?php
 			if ( $subheading ) :
 				$subheading = $subheading;
