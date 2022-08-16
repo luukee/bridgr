@@ -8,21 +8,21 @@
 namespace WP_Rig\WP_Rig;
 
 global $count;
-$bk_color       = get_post_meta( get_the_ID(), 'layouts_' . $count . '_bk_color', true );
-$border         = get_post_meta( get_the_ID(), 'layouts_' . $count . '_border', true );
-$flip            = get_post_meta( get_the_ID(), 'layouts_' . $count . '_flip', true );
-$txt            = get_post_meta( get_the_ID(), 'layouts_' . $count . '_txt', true );
-$img            = get_post_meta( get_the_ID(), 'layouts_' . $count . '_img', true );
-$img_large      = wp_get_attachment_image( $img, 'large', array( 'class' => 'grid-item__img' ) );
-$img_full       = wp_get_attachment_image( $img, 'full', array( 'class' => 'grid-item__img' ) );
-$img_fill        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_fill_img', true );
-$img_width      = get_post_meta( get_the_ID(), 'layouts_' . $count . '_img_width', true );
-$modal_or_link  = get_post_meta( get_the_ID(), 'layouts_' . $count . '_modal_or_link', true );
-$section_id     = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_id', true );
-$subheading     = get_post_meta( get_the_ID(), 'layouts_' . $count . '_subheading', true );
-$section_height = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_height', true );
-$overlap        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_overlap', true );
-$txt_background_color        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_txt_background_color', true );
+$bk_color             = get_post_meta( get_the_ID(), 'layouts_' . $count . '_bk_color', true );
+$border               = get_post_meta( get_the_ID(), 'layouts_' . $count . '_border', true );
+$flip                  = get_post_meta( get_the_ID(), 'layouts_' . $count . '_flip', true );
+$txt                  = get_post_meta( get_the_ID(), 'layouts_' . $count . '_txt', true );
+$img                  = get_post_meta( get_the_ID(), 'layouts_' . $count . '_img', true );
+$img_large            = wp_get_attachment_image( $img, 'large', array( 'class' => 'grid-item__img' ) );
+$img_full             = wp_get_attachment_image( $img, 'full', array( 'class' => 'grid-item__img' ) );
+$img_fill              = get_post_meta( get_the_ID(), 'layouts_' . $count . '_fill_img', true );
+$img_width            = get_post_meta( get_the_ID(), 'layouts_' . $count . '_img_width', true );
+$modal_or_link        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_modal_or_link', true );
+$section_id           = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_id', true );
+$subheading           = get_post_meta( get_the_ID(), 'layouts_' . $count . '_subheading', true );
+$section_height       = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_height', true );
+$overlap              = get_post_meta( get_the_ID(), 'layouts_' . $count . '_overlap', true );
+$txt_background_color = get_post_meta( get_the_ID(), 'layouts_' . $count . '_txt_background_color', true );
 
 if ( $overlap ) {
 	$overlap = ' overlap';
@@ -98,11 +98,7 @@ if ( 'third' === $img_width ) {
 	$txt_width = $img_width;
 }
 ?>
-<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-img"
-	<?php
-	if ( ! empty( $bk_color ) || ! empty( $border ) ) :
-		?>
-	style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $border ); ?>"<?php endif; ?>>
+<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-img" <?php if ( ! empty( $bk_color ) || ! empty( $border ) ) : ?> style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $border ); ?>"<?php endif; ?>>
 	<figure class="wrap mdl-grid <?php echo esc_html( $section_height ); ?>">
 		<?php if ( $img ) : ?>
 			<div class="animate mdl-cell <?php echo esc_html( $img_width ); ?> mdl-cell--12-col-tablet <?php echo esc_html( $flip ); ?> col">

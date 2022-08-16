@@ -11,7 +11,7 @@ if ( is_front_page() ) :
 	get_template_part( 'template-parts/content/entry_content-front-page', get_post_type() );
 else :
 	?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry mdl-cell mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--middle' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry mdl-cell mdl-cell--12-col-tablet mdl-cell--6-col-desktop mdl-cell--3-offset-desktop mdl-cell--middle' ); ?>>
 		<?php
 		get_template_part( 'template-parts/content/entry_header', get_post_type() );
 

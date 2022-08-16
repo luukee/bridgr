@@ -85,7 +85,7 @@ msgstr ""
 msgid "Front Page"
 msgstr ""
 
-#: page-templates/front-page.php:98
+#: page-templates/front-page.php:93
 msgid "(Edit)"
 msgstr ""
 
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Drawer"
 msgstr ""
 
-#: inc/Nav_Menus/Component.php:208
+#: inc/Nav_Menus/Component.php:208, template-parts/header/navigation.php:40
 msgid "Open menu"
 msgstr ""
 
@@ -208,11 +208,11 @@ msgstr ""
 msgid "Sidebar"
 msgstr ""
 
-#: inc/Sidebars/Component.php:74, inc/Sidebars/Component.php:83
+#: inc/Sidebars/Component.php:74, inc/Sidebars/Component.php:85
 msgid "Add widgets here."
 msgstr ""
 
-#: inc/Sidebars/Component.php:81
+#: inc/Sidebars/Component.php:83
 msgid "Footer"
 msgstr ""
 
@@ -221,11 +221,11 @@ msgstr ""
 msgid "Invalid theme stylesheet handle: %s"
 msgstr ""
 
-#: template-parts/content/entry-attachment.php:33, template-parts/content/entry.php:36
+#: template-parts/content/entry-attachment.php:33, template-parts/content/entry.php:35
 msgid "Previous:"
 msgstr ""
 
-#: template-parts/content/entry-attachment.php:43, template-parts/content/entry.php:37
+#: template-parts/content/entry-attachment.php:43, template-parts/content/entry.php:36
 msgid "Next:"
 msgstr ""
 
@@ -375,4 +375,8 @@ msgstr ""
 
 #: template-parts/header/navigation.php:16
 msgid "Main menu"
+msgstr ""
+
+#: template-parts/header/navigation.php:41
+msgid "Menu"
 msgstr ""

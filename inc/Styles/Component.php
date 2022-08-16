@@ -288,10 +288,6 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'file'   => 'global.min.css',
 				'global' => true,
 			),
-			'wp-rig-app'     => array(
-				'file'   => 'app.min.css',
-				'global' => true,
-			),
 			'wp-rig-comments'   => array(
 				'file'             => 'comments.min.css',
 				'preload_callback' => function() {

@@ -12,7 +12,15 @@ a {
 	color: var(--color-link-nav);
 }
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-	background-color: var(--color-theme-secondary);
+	background-color: rgba(var(--color-theme-secondary), 1);
+}
+
+.mdl-button--raised.mdl-button--colored {
+	background: rgba(var(--color-theme-secondary), 1);
+
+	&:hover {
+		background: var(--color-link) !important;
+	}
 }
 
 a:visited {
@@ -32,4 +40,10 @@ a:focus {
 a:hover,
 a:active {
 	outline: 0;
+}
+
+.link-absolute {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }

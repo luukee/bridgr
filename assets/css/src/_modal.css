@@ -26,7 +26,7 @@
 	width: 400px;
 	position: absolute;
 	padding: 3em 2em 2em 2em;
-	background: var(--color-theme-black);
+	background: var(--color-theme-primary);
 }
 
 .modal-window_large > div {
@@ -38,7 +38,8 @@
 		width: auto;
 		min-width: 60vw;
 		padding: 3em 2em 2em 2em;
-		height: 50vh;
+		height: 70vh;
+		overflow: auto;
 	}
 }
 
@@ -59,7 +60,7 @@
 }
 
 .modal-window header {
-	font-weight: bold;
+	font-weight: 500;
 }
 
 .modal-window h1 {
@@ -99,10 +100,14 @@
 
 .embed-container {
 	position: relative;
-	padding-bottom: 56.25%;
+	padding-bottom: 85vh;
 	overflow: hidden;
 	max-width: 100%;
 	height: auto;
+
+	@media (--content-query) {
+		padding-bottom: 75%;
+	}
 }
 
 .embed-container iframe,

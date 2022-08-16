@@ -55,13 +55,28 @@ h6 {
 
 .copy__caption {
 	font: var(--captionFont);
-	color: var(--accentColor);
+	color: rgba(var(--color-theme-secondary), 1);
 	letter-spacing: var(--bodyLetterSpacing);
 }
 h3 {
 	&.copy__caption {
 		@media (--content-query) {
 			font-size: 25px;
+		}
+	}
+}
+h4 {
+	&.copy__caption {
+		@media (--content-query) {
+			font-size: 17px;
+		}
+	}
+}
+h5 {
+	&.copy__caption {
+		@media (--content-query) {
+			font-size: 16px;
+			text-transform: uppercase;
 		}
 	}
 }
@@ -177,7 +192,7 @@ big {
 
 sub {
 	text-transform: uppercase;
-	color: var(--color-theme-secondary);
+	color: rgba(var(--color-theme-secondary), 1);
 	&::after {
 		content: "–––––––––––";
 		letter-spacing: -3px;

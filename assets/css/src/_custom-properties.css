@@ -13,6 +13,9 @@
 		0 16px 24px rgba(0, 0, 0, 0.14),
 		0 6px 30px rgba(0, 0, 0, 0.12),
 		0 8px 10px rgba(0, 0, 0, 0.2);
+	--boxShadowDeep:
+		0 16px 28px 0 rgba(0, 0, 0, 0.22),
+		0 25px 55px 0 rgba(0, 0, 0, 0.21);
 
 	/* Typography */
 	--fontFamily: "Roboto", "Helvetica Neue", "Arial Narrow", sans-serif;
@@ -37,7 +40,7 @@
 	/* caption */
 	--captionLetterSpacing: 1px;
 	--captionWeight: 500;
-	--captionFontSize: 20px;
+	--captionFontSize: 19px;
 
 	/* Custom editor font sizes */
 	--fontSizeSmall: calc(16 / 18 * 1rem);
@@ -48,7 +51,8 @@
 	/* Colors */
 	--bodyFontColor: #fff;
 	--titleColor: #fff;
-	--accentColor: #ed8100;
+
+	/* --accentColor: #48c0b9; */
 
 	--border-color-dark: #333;
 	--border-color-light: #ccc;
@@ -61,7 +65,7 @@
 
 	/* Custom editor colors */
 	--color-theme-primary: #002542;
-	--color-theme-secondary: #00a5cc;
+	--color-theme-secondary: 0, 165, 204;
 	--color-theme-magenta: #db1f8f;
 	--color-theme-purple: #871fff;
 	--color-theme-green: #00ccc2;

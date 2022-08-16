@@ -24,11 +24,9 @@ $button_opens_modal = get_post_meta( get_the_ID(), 'layouts_' . $count . '_butto
 
 if ( $button_opens_modal ) {
 	$btn_txt   = get_post_meta( get_the_ID(), 'layouts_' . $count . '_btn_txt', true );
-	$btn_color = get_post_meta( get_the_ID(), 'layouts_' . $count . '_btn_color', true );
 	$modal_txt = get_post_meta( get_the_ID(), 'layouts_' . $count . '_modal_txt', true );
 } else {
 	$btn_txt   = get_post_meta( get_the_ID(), 'layouts_' . $count . '_btn_txt', true );
-	$btn_color = get_post_meta( get_the_ID(), 'layouts_' . $count . '_btn_color', true );
 	$btn_url   = get_post_meta( get_the_ID(), 'layouts_' . $count . '_btn_url', true );
 }
 
@@ -90,14 +88,17 @@ if ( 'default' !== $content_align ) {
 ?>
 <section class="wonder-section copy banner" style="<?php echo esc_html( $bk ); ?>">
 	<div class="wrap mdl-grid<?php echo esc_html( $section_height ); ?>">
-		<div class="banner-overlay" style="opacity:0.<?php echo esc_html( $overlay ); ?>"></div>
+		<?php if ( 'image' === $bk_option ) : ?>
+			<div class="banner-overlay" style="opacity:0.<?php echo esc_html( $overlay ); ?>"></div>
+		<?php endif; ?>
 		<?php if ( ! empty( $txt ) ) : ?>
 			<div class="animate col <?php echo esc_html( $width ); ?>" style="text-align:<?php echo esc_html( $content_align ); ?>;">
 				<?php
 				echo wp_kses( apply_filters( 'the_content', $txt ), 'post' );
-				if ( $btn ) : ?>
+				if ( $btn ) :
+					?>
 					<?php if ( $button_opens_modal ) : ?>
-						<a href="#open-modal-<?php echo esc_html( $count ); ?>" class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored" <?php echo wp_kses( $btn_color, 'post' ); ?>>
+						<a href="#open-modal-<?php echo esc_html( $count ); ?>" class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
 							<?php echo wp_kses( $btn_txt, 'post' ); ?>
 						</a>
 					<?php else : ?>
@@ -113,9 +114,13 @@ if ( 'default' !== $content_align ) {
 		<div id="open-modal-<?php echo esc_html( $count ); ?>" class="modal-window modal-window_large">
 			<div>
 				<div class="modal-window__content">
-					<a href="#!" title="Close" class="modal-close"><?php echo file_get_contents( get_theme_file_path() . '/assets/svg/close-icon.svg' ); ?></a>
+					<a href="#!" title="Close" class="modal-close">
+						<?php get_template_part( 'template-parts/svg/close-icon' ); ?>
+					</a>
 					<?php if ( $modal_txt ) : ?>
-						<?php echo wp_kses( $modal_txt, 'post' ); ?>
+						<div class='embed-container'>
+							<?php echo $modal_txt; ?>
+						</div>
 					<?php endif; ?>
 				</div>
 			</div>

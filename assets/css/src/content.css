@@ -30,6 +30,7 @@
 
 .entry {
 	margin-bottom: 1rem;
+	padding: 2em 0;
 }
 
 .entry-meta,
@@ -221,11 +222,11 @@
 }
 
 .has-theme-secondary-color {
-	color: var(--color-theme-secondary);
+	color: rgba(var(--color-theme-secondary), 1);
 }
 
 .has-theme-secondary-background-color {
-	background-color: var(--color-theme-secondary);
+	background-color: rgba(var(--color-theme-secondary), 1);
 }
 
 .has-theme-red-color {
@@ -237,11 +238,11 @@
 }
 
 .has-theme-green-color {
-	color: var(--color-theme-green);
+	color: rgba(var(--color-theme-secondary), 1);
 }
 
 .has-theme-green-background-color {
-	background-color: var(--color-theme-green);
+	background-color: rgba(var(--color-theme-secondary), 1);
 }
 
 .has-theme-blue-color {
