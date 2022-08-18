@@ -11,8 +11,10 @@
 
 .section__height-medium {
 	min-height: 55vh;
+	align-content: center;
 }
 
 .section__height-viewport {
 	min-height: 100vh;
+	align-content: center;
 }

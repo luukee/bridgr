@@ -43,7 +43,7 @@ h6 {
 		var(--titleLineHeight) var(--fontFamily);
 	--captionFont: var(--fontWeightBold) var(--captionFontSize, 19px) /
 		var(--captionLineHeight, 1.555555556) var(--fontFamily);
-	--bodyFont: var(--fontWeightLight) var(--bodyFontSize, 19px) /
+	--bodyFont: var(--fontWeightLight) var(--bodyFontSize, 15px) /
 		var(--bodyLineHeight, 1.555555556) var(--fontFamily);
 }
 
@@ -68,7 +68,7 @@ h3 {
 h4 {
 	&.copy__caption {
 		@media (--content-query) {
-			font-size: 17px;
+			font-size: 19px;
 		}
 	}
 }

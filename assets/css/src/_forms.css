@@ -113,3 +113,42 @@ input.mdl-button--colored--white {
 	padding: 0.75em 0.5em;
 	font-size: 14px;
 }
+
+/* sendinblue form css */
+.modal-window__content .sib-form {
+	padding-top: 0;
+}
+#sib-container {
+	padding: 0 17px;
+	background-color: transparent !important;
+	& * {
+		color: var(--color-theme-white) !important;
+		font-family: var(--fontFamily);
+	}
+}
+
+.sib-text-form-block {
+	text-align: center;
+}
+.sib-form input::placeholder {
+	font-weight: bold;
+	opacity: 0.5;
+	color: var(--color-quote-citation) !important;
+}
+#sib-container input:-ms-input-placeholder {
+	text-align: left;
+	font-family: var(--fontFamily);
+	color: var(--color-theme-white);
+}
+
+#sib-container input::placeholder {
+	text-align: left;
+	font-family: var(--fontFamily);
+	color: var(--color-theme-white);
+}
+
+#sib-container textarea::placeholder {
+	text-align: left;
+	font-family: var(--fontFamily);
+	color: var(--color-theme-white);
+}

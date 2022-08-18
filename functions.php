@@ -70,3 +70,13 @@ add_action('acf/input/admin_enqueue_scripts', 'wp_rig_acf_admin_enqueue_scripts'
 function wp_rig_acf_admin_enqueue_scripts() {
 	wp_enqueue_style( 'acf-styles', get_stylesheet_directory_uri() . '/assets/css/editor/acf-styles.min.css', false, '1.0.0' );
 }
+
+
+// function wp_rig_bridgr_enqueue_styles() {
+
+// 	// enqueue child styles
+
+// 	wp_enqueue_style('material-icons', '//fonts.googleapis.com/icon?family=Material+Icons' );
+
+// }
+// add_action('wp_enqueue_scripts', 'wp_rig_bridgr_enqueue_styles', 9999 );

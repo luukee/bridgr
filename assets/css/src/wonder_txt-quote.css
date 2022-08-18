@@ -5,8 +5,24 @@
 
 	@media (--content-query) {
 		background-size: 100% cover;
-		padding-top: 7em;
-		padding-bottom: 7em;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	& .section-wrap {
+
+		@media (--content-query) {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	& .author-quote-wrap {
+
+		@media (--sidebar-query) {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -16,12 +32,22 @@
 .author-quote {
 	color: var(--color-theme-white);
 	padding: 0;
+	z-index: 1;
 
 	&:hover {
 
 		& .author-photo::before {
-			background-color: transparent;
-			transition: background-color 1s linear;
+
+			@media (--narrow-menu-query) {
+				z-index: 1;
+				width: 100%;
+				height: 100%;
+			}
+
+			@media (--sidebar-query) {
+				background-color: transparent;
+				transition: background-color 1s linear;
+			}
 		}
 	}
 }
@@ -62,15 +88,17 @@
 	color: #fff;
 	overflow: hidden;
 	background: rgba(var(--color-theme-secondary), 1);
-	border-radius: var(--borderRadius);
 	position: relative;
 	box-shadow: var(--boxShadowDeep);
 }
 
 .author-quote-wrap .author-photo::before {
-	content: "";
-	background: rgba(var(--color-theme-secondary), 1);
-	transition: background-color 1s linear;
+
+	@media (--sidebar-query) {
+		content: "";
+		background: rgba(var(--color-theme-secondary), 1);
+		transition: background-color 1s linear;
+	}
 }
 
 .author-quote-wrap .author-photo::after {
@@ -125,7 +153,7 @@
 	@media (--narrow-menu-query) {
 		width: 100%;
 		height: 100%;
-		z-index: -1;
+		z-index: 0;
 	}
 
 	@media (--content-query) {
@@ -150,95 +178,19 @@
 	position: absolute;
 	font-family: serif;
 	content: open-quote;
+	z-index: 2;
 
 	@media (--content-query) {
 		left: 60px;
 	}
 }
 
-.author-quote-wrap .author-photo .navigate {
-	left: 15px;
-	z-index: 10;
-	right: 15px;
-	bottom: 15px;
-	position: absolute;
-	text-align: center;
-}
-
-.author-quote-wrap .author-photo .navigate .label {
-	width: 15px;
-	height: 30px;
-	cursor: pointer;
-	position: relative;
-	display: inline-block;
-}
-
-.author-quote-wrap .author-photo .navigate .label.left {
-	left: -30px;
-}
-
-.author-quote-wrap .author-photo .navigate .label.right {
-	right: -30px;
-}
-
-.author-quote-wrap .author-photo .navigate .label.disabled {
-	cursor: not-allowed;
-}
-
-.author-quote-wrap .author-photo .navigate .label::before,
-.author-quote-wrap .author-photo .navigate .label::after {
-	content: "";
-	height: 2px;
-	width: 15px;
-	background: #ccc;
-	position: absolute;
-}
-
-.author-quote-wrap .author-photo .navigate .label::before {
-	top: 62%;
-}
-
-.author-quote-wrap .author-photo .navigate .label::after {
-	bottom: 62%;
-}
-
-.author-quote-wrap .author-photo .navigate .label.left::before,
-.author-quote-wrap .author-photo .navigate .label.right::after {
-	transform: rotate(45deg);
-}
-
-.author-quote-wrap .author-photo .navigate .label.right::before,
-.author-quote-wrap .author-photo .navigate .label.left::after {
-	transform: rotate(-45deg);
-}
-
-.author-quote-wrap .author-photo .navigate .label.left::before,
-.author-quote-wrap .author-photo .navigate .label.left::after {
-	left: 0;
-}
-
-.author-quote-wrap .author-photo .navigate .label.right::before,
-.author-quote-wrap .author-photo .navigate .label.right::after {
-	right: 0;
-}
-
-.author-quote-wrap .author-photo .navigate .label.disabled::before,
-.author-quote-wrap .author-photo .navigate .label.disabled::after,
-.author-quote-wrap .author-photo .navigate .label.disabled:hover::before,
-.author-quote-wrap .author-photo .navigate .label.disabled:hover::after {
-	background: #bbb;
-}
-
-.author-quote-wrap .author-photo .navigate .label:hover::before,
-.author-quote-wrap .author-photo .navigate .label:hover::after {
-	background: #fff;
-}
-
 .author-quote-wrap .quote-content {
 	padding: 4em 1em;
+	z-index: 2;
 
 	@media (--content-query) {
-		padding: 2em 1em;
+		padding: 3em;
 	}
 }
 
@@ -284,13 +236,13 @@
 }
 
 .quote-content .quote-text {
-	font-size: 40px;
+	font-size: 20px;
 	font-weight: 900;
-	line-height: 50px;
+	line-height: 36px;
 	padding-bottom: 1em;
 
 	@media (--content-query) {
-		font-size: 48px;
+		font-size: 40px;
 		line-height: 55px;
 	}
 }
@@ -303,4 +255,8 @@
 
 .quote-content .quote-author::before {
 	content: "- ";
+}
+
+.mdl-nowrap {
+	flex-wrap: nowrap;
 }

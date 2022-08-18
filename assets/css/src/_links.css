@@ -10,12 +10,14 @@ a {
 /* stylelint-enable */
 .mdl-navigation .mdl-navigation__link.menu-item {
 	color: var(--color-link-nav);
+	padding: 16px 36px;
 }
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
 	background-color: rgba(var(--color-theme-secondary), 1);
 }
 
-.mdl-button--raised.mdl-button--colored {
+.mdl-button--raised.mdl-button--colored,
+.sib-form-block__button {
 	background: rgba(var(--color-theme-secondary), 1);
 
 	&:hover {

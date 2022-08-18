@@ -4,146 +4,51 @@
  * Custom styles for the front-page.php template.
  */
 
-/* @import "_modal.css"; */
-
 small {
 	color: var(--color-theme-white);
-}
-
-@media screen and (--wide-menu-query) {
-
-	.grid__full {
-		grid-template-columns: auto;
-	}
-
-	.grid__half {
-		grid-template-columns: 1fr 1fr;
-		gap: 2em;
-	}
 }
 
 .wonder-section {
 	background-repeat: no-repeat;
 
-	& .grid {
-		display: grid;
+	&.narrow {
+
+		@media (--sidebar-query) {
+			max-width: 936px;
+		}
 	}
 
-	& .wrap {
-		padding-right: 1.25rem;
-		padding-left: 1.25rem;
-		max-width: 1200px;
-		margin: 0 auto;
-		align-items: center;
+	&.wide {
 
-		@media (--content-query) {
-			padding-right: 1em;
-			padding-left: 1em;
-			align-content: center;
-		}
-
-		&.narrow {
-
-			@media (--sidebar-query) {
-				max-width: 936px;
-			}
-		}
-
-		&.wide {
-
-			@media (--sidebar-query) {
-				max-width: 1440px;
-			}
+		@media (--sidebar-query) {
+			max-width: 1440px;
 		}
 	}
 
 	& figcaption {
 		padding: 1.5em;
 		box-shadow: var(--boxShadowDeep);
-		opacity: 0;
-		transition: opacity 0.2s linear;
+		border-radius: var(--borderRadius);
+		z-index: 1;
 
 		@media (--content-query) {
 			padding: 2.5em;
 		}
 	}
+}
 
-	& figure {
+.section-wrap {
 
-		&:hover {
-
-			& figcaption {
-				opacity: 1;
-			}
-		}
-	}
-
-	& .grid__half {
-
-		@media (--sidebar-query) {
-			grid-gap: 1em;
-		}
-	}
-
-	& .grid__half-flip {
-
-		@media (--sidebar-query) {
-			grid-template-columns: 1fr 1fr;
-			gap: 1em;
-		}
-	}
-
-	& .grid__third {
-
-		@media (--sidebar-query) {
-			grid-template-columns: 2fr 1fr;
-			gap: 4em;
-		}
-	}
-
-	& .grid__third-flip {
-
-		@media (--sidebar-query) {
-			grid-template-columns: 1fr 2fr;
-			gap: 4em;
-		}
-	}
-
-	& .col {
-		margin-top: 1.25rem;
-		margin-bottom: 1.25rem;
-
-		@media (--content-query) {
-			padding-top: 1.875rem;
-			padding-bottom: 1.875rem;
-
-			& .img-wrap {
-				margin-bottom: 0;
-			}
-		}
-
-		&.caption {
-			border-radius: var(--borderRadius);
-		}
-	}
-
-	& .flip {
-
-		@media (--content-query) {
-			order: 2;
-		}
+	@media (--content-query) {
+		max-width: 1200px;
+		align-items: center;
 	}
 }
 
-.img-wrap {
-	filter: drop-shadow(2px 4px 6px #000);
-	margin: 0;
-
-	& img {
-		display: block;
-		height: auto;
-		max-width: 100%;
-	}
+img {
+	display: block;
+	height: auto;
+	max-width: 100%;
 }
 
 .banner__feat {
@@ -175,62 +80,117 @@ small {
 }
 
 .mdl-header {
+	min-width: 100vw;
+	min-height: 70vh;
 	padding: 0;
+	align-items: center;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 
-	@media (--content-query) {
-		flex-flow: column wrap;
+	@media (--narrow-menu-query) {
+		min-height: 100vh;
 	}
 
-	@media (--sidebar-query) {
-		flex-flow: row nowrap;
-		min-height: 85vh;
+	& .wp-post-image {
+		margin: 0;
 	}
 }
 
 .mdl-title {
 	display: flex;
-	margin: 0;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	box-shadow: var(--boxShadowPopup);
-	min-height: 70vh;
-	padding: 1em;
+	padding: 0 1em;
 	flex-flow: column wrap;
-	justify-content: center;
-	min-width: 100vw;
 
 	@media (--content-query) {
 		align-items: center;
 		padding: 3em;
 	}
-
-	@media (--sidebar-query) {
-		align-items: center;
-	}
 }
 
+/*
 .overlap {
+
+	@media (--content-query) {
+		transform: translateY(15vh);
+	}
 
 	@media (--sidebar-query) {
 		width: 140%;
 	}
 }
 
-.caption {
+.flip .overlap {
+
+	@media (--content-query) {
+		transform: translateY(-15vh);
+	}
+
+	@media (--sidebar-query) {
+		transform: translateX(-30%);
+	}
+}
+*/
+.mdl-cell__caption {
 
 	@media (--sidebar-query) {
 		padding: 2em;
 	}
 }
 
-.flip .overlap {
+.wrap.wrap__top {
+	align-items: flex-start;
+}
 
-	@media (--sidebar-query) {
-		transform: translateX(-30%);
+.flip {
+
+	& .mdl-cell__img {
+		order: 2;
 	}
 }
 
-.wrap.wrap__top {
-	align-items: flex-start;
+.overlap {
+	position: relative;
+
+	& .mdl-cell__img {
+		margin: 0;
+
+		@media (--mobile-query) {
+			width: 100vw;
+		}
+	}
+
+	& .img-wrap {
+
+		@media (--sidebar-query) {
+			width: 120%;
+		}
+	}
+
+	&:not(.flip) {
+
+		& .mdl-cell__img {
+
+			@media (--mobile-query) {
+				transform: translateY(7vh);
+			}
+		}
+	}
+
+	&.flip {
+
+		& .mdl-cell__img {
+
+			@media (--mobile-query) {
+				transform: translateY(-7vh);
+			}
+		}
+
+		& .img-wrap {
+
+			@media (--sidebar-query) {
+				transform: translateX(-9vw);
+			}
+		}
+	}
 }

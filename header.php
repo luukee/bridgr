@@ -17,6 +17,20 @@ require 'inc/Walker_Nav_Menu.php';
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
+	<?php
+	$ga_id = get_theme_mod( 'ga_id' );
+	if ( $ga_id ) :
+	?>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $ga_id; ?>"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', '<?php echo $ga_id; ?>');
+		</script>
+	<?php endif ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
@@ -28,7 +42,7 @@ require 'inc/Walker_Nav_Menu.php';
 		<?php
 	}
 	?>
-
+	<!--  END - We recommend to place the above code in head tag of your website html -->
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

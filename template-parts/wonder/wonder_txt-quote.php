@@ -17,10 +17,17 @@ $section_id         = get_post_meta( get_the_ID(), 'layouts_' . $count . '_secti
 $flip                = get_post_meta( get_the_ID(), 'layouts_' . $count . '_flip', true );
 $vertical_alignment = get_post_meta( get_the_ID(), 'layouts_' . $count . '_vertical_alignment', true );
 $quote_box_link     = get_post_meta( get_the_ID(), 'layouts_' . $count . '_quote_box_link', true );
+$quote              = get_post_meta( get_the_ID(), 'layouts_' . $count . '_quote', true );
+$quote_author       = get_post_meta( get_the_ID(), 'layouts_' . $count . '_quote_author', true );
+$author_image       = get_post_meta( get_the_ID(), 'layouts_' . $count . '_author_image', true );
+$section_animate_in = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_animate_in', true );
 
-$quote        = get_post_meta( get_the_ID(), 'layouts_' . $count . '_quote', true );
-$quote_author = get_post_meta( get_the_ID(), 'layouts_' . $count . '_quote_author', true );
-$author_image = get_post_meta( get_the_ID(), 'layouts_' . $count . '_author_image', true );
+if ( $section_animate_in ) {
+	$section_animate_in = ' animate';
+} else {
+	$section_animate_in = '';
+}
+
 if ( $bk_color ) {
 	$bk_color = 'background-color:' . $bk_color . ';';
 }
@@ -41,7 +48,7 @@ else :
 endif;
 
 if ( $flip ) {
-	$flip = '-flip';
+	$flip = ' flip';
 } else {
 	$flip = '';
 }
@@ -58,23 +65,23 @@ if ( ! empty( $author_image ) ) :
 	</style>
 <?php endif; ?>
 
-<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-quote" style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $bk_img ); ?><?php echo esc_html( $bk_pos ); ?>;">
-	<div class="wrap wrap__<?php echo esc_html( $vertical_alignment ); ?> mdl-grid<?php echo esc_html( $flip ); ?>">
-		<div class="col animate mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet<?php echo esc_html( ' ' . $flip ); ?>">
+<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-quote<?php echo esc_html( $flip ); ?>" style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $bk_img ); ?><?php echo esc_html( $bk_pos ); ?>;">
+	<div class="wrap__<?php echo esc_html( $vertical_alignment ); ?> mdl-grid section-wrap">
+		<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet<?php echo esc_html( $section_animate_in ); ?>">
 			<?php echo wp_kses( $the_content, 'post' ); ?>
 			<?php if ( $btn ) : ?>
 				<a href="<?php echo esc_url( $btn_url ); ?>" <?php echo wp_kses( $btn_color, 'post' ); ?> class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><?php echo wp_kses( $btn_txt, 'post' ); ?></a>
 			<?php endif; ?>
 		</div>
 
-		<div class="author-quote-wrap animate mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet">
+		<div class="author-quote-wrap mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet<?php echo esc_html( $section_animate_in ); ?>">
 			<input class="toggle-quote" type="radio" id="AQ-1" name="quote" checked>
 			<div class="author-quote mdl-grid mdl-nowrap">
-				<div class="author-photo mdl-cell--4-col mdl-cell--2-col-tablet mdl-cell--2-col-desktop photo-a animated bounceInLeft"></div>
+				<div class="author-photo mdl-cell--4-col mdl-cell--2-col-tablet mdl-cell--3-col-desktop photo-a animated bounceInLeft"></div>
 				<?php if ( $quote_box_link ) : ?>
 					<a href="<?php echo esc_url( $quote_box_link ); ?>" class="link-absolute"></a>
 				<?php endif; ?>
-				<div class="quote-content mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--10-col-desktop">
+				<div class="quote-content mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--9-col-desktop">
 					<div class="quote-text animated rotateInDownRight"><?php echo wp_kses( $quote, 'post' ); ?></div>
 					<div class="quote-author animated lightSpeedIn"><?php echo wp_kses( $quote_author, 'post' ); ?></div>
 				</div>

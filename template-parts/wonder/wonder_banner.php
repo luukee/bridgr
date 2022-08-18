@@ -21,6 +21,14 @@ $overlay            = get_post_meta( get_the_ID(), 'layouts_' . $count . '_bk_im
 $width              = get_post_meta( get_the_ID(), 'layouts_' . $count . '_width', true );
 $content_align      = get_post_meta( get_the_ID(), 'layouts_' . $count . '_content_align', true );
 $button_opens_modal = get_post_meta( get_the_ID(), 'layouts_' . $count . '_button_opens_modal', true );
+$section_animate_in = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_animate_in', true );
+$modal_content_is_form = get_post_meta( get_the_ID(), 'layouts_' . $count . '_modal_content_is_form', true );
+
+if ( $section_animate_in ) {
+	$section_animate_in = ' animate';
+} else {
+	$section_animate_in = '';
+}
 
 if ( $button_opens_modal ) {
 	$btn_txt   = get_post_meta( get_the_ID(), 'layouts_' . $count . '_btn_txt', true );
@@ -87,12 +95,12 @@ if ( 'default' !== $content_align ) {
 
 ?>
 <section class="wonder-section copy banner" style="<?php echo esc_html( $bk ); ?>">
-	<div class="wrap mdl-grid<?php echo esc_html( $section_height ); ?>">
+	<div class="mdl-grid section-wrap<?php echo esc_html( $section_height ); ?>">
 		<?php if ( 'image' === $bk_option ) : ?>
 			<div class="banner-overlay" style="opacity:0.<?php echo esc_html( $overlay ); ?>"></div>
 		<?php endif; ?>
 		<?php if ( ! empty( $txt ) ) : ?>
-			<div class="animate col <?php echo esc_html( $width ); ?>" style="text-align:<?php echo esc_html( $content_align ); ?>;">
+			<div class="col <?php echo esc_html( $width ); ?><?php echo esc_html( $section_animate_in ); ?>" style="text-align:<?php echo esc_html( $content_align ); ?>;">
 				<?php
 				echo wp_kses( apply_filters( 'the_content', $txt ), 'post' );
 				if ( $btn ) :
@@ -117,9 +125,11 @@ if ( 'default' !== $content_align ) {
 					<a href="#!" title="Close" class="modal-close">
 						<?php get_template_part( 'template-parts/svg/close-icon' ); ?>
 					</a>
-					<?php if ( $modal_txt ) : ?>
+					<?php if ( $modal_content_is_form ) : ?>
+						<?php get_template_part( 'template-parts/forms/sendinblue-waitlist' ); ?>
+					<?php else : ?>
 						<div class='embed-container'>
-							<?php echo $modal_txt; ?>
+							<?php echo wp_kses( $modal_txt, 'post' ); ?>
 						</div>
 					<?php endif; ?>
 				</div>

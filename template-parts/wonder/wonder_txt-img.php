@@ -23,6 +23,13 @@ $subheading           = get_post_meta( get_the_ID(), 'layouts_' . $count . '_sub
 $section_height       = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_height', true );
 $overlap              = get_post_meta( get_the_ID(), 'layouts_' . $count . '_overlap', true );
 $txt_background_color = get_post_meta( get_the_ID(), 'layouts_' . $count . '_txt_background_color', true );
+$section_animate_in   = get_post_meta( get_the_ID(), 'layouts_' . $count . '_section_animate_in', true );
+
+if ( $section_animate_in ) {
+	$section_animate_in = ' animate';
+} else {
+	$section_animate_in = '';
+}
 
 if ( $overlap ) {
 	$overlap = ' overlap';
@@ -75,15 +82,6 @@ if ( ! empty( $btn_color ) ) {
 	$btn_color = ' style="background-color:' . $btn_color . ';"';
 }
 
-
-// if ( $img_width && '' === $flip ) {
-// 	$img_width = ' ' . $img_width;
-// } elseif ( $img_width && ' flip' === $flip ) {
-// 	$img_width = ' ' . $img_width . '-flip';
-// } else {
-// 	$img_width = ' grid__half';
-// }
-
 if ( 'default' !== $section_height ) {
 	$section_height = ' section__height-' . $section_height;
 } else {
@@ -98,18 +96,18 @@ if ( 'third' === $img_width ) {
 	$txt_width = $img_width;
 }
 ?>
-<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-img" <?php if ( ! empty( $bk_color ) || ! empty( $border ) ) : ?> style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $border ); ?>"<?php endif; ?>>
-	<figure class="wrap mdl-grid <?php echo esc_html( $section_height ); ?>">
+<section id="<?php echo esc_html( $section_id ); ?>" class="wonder-section copy txt-img<?php echo esc_html( $flip ); ?><?php if ( $overlap ) { echo ' overlap'; }; ?>" <?php if ( ! empty( $bk_color ) || ! empty( $border ) ) : ?> style="<?php echo esc_html( $bk_color ); ?><?php echo esc_html( $border ); ?>"<?php endif; ?>>
+	<figure class="mdl-grid section-wrap<?php echo esc_html( $section_height ); ?>">
 		<?php if ( $img ) : ?>
-			<div class="animate mdl-cell <?php echo esc_html( $img_width ); ?> mdl-cell--12-col-tablet <?php echo esc_html( $flip ); ?> col">
+			<div class="mdl-cell mdl-cell__img <?php echo esc_html( $img_width ); ?> mdl-cell--12-col-tablet <?php echo esc_html( $section_animate_in ); ?>">
 				<?php if ( $modal_or_link ) : ?>
 					<a href="#open-modal-<?php echo esc_html( $count ); ?>">
-						<div class="img-wrap <?php if ( $overlap ) { echo 'overlap'; }; ?>">
+						<div class="img-wrap">
 							<?php echo wp_kses( $img_large, 'post' ); ?>
 						</div>
 					</a>
 				<?php else : ?>
-					<div class="img-wrap <?php if ( $overlap ) { echo 'overlap'; }; ?>">
+					<div class="img-wrap">
 						<?php if ( $img_url ) : ?>
 							<a href="<?php echo wp_kses( $img_url, 'post' ); ?>">
 								<?php echo wp_kses( $img_large, 'post' ); ?>
@@ -124,7 +122,7 @@ if ( 'third' === $img_width ) {
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
-		<figcaption class="animate mdl-cell caption col <?php echo esc_html( $txt_width ); ?> mdl-cell--12-col-tablet" <?php echo wp_kses( $txt_background_color, 'post' ); ?>>
+		<figcaption class="mdl-cell mdl-cell__caption <?php echo esc_html( $txt_width ); ?> mdl-cell--12-col-tablet<?php echo esc_html( $section_animate_in ); ?>" <?php echo wp_kses( $txt_background_color, 'post' ); ?>>
 			<?php
 			if ( $subheading ) :
 				$subheading = $subheading;

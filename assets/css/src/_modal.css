@@ -33,11 +33,12 @@
 	width: 90vw;
 	padding: 3em 5px 5px 5px;
 	height: 90vh;
+	border-radius: var(--borderRadius);
 
 	@media (--content-query) {
 		width: auto;
-		min-width: 60vw;
-		padding: 3em 2em 2em 2em;
+		min-width: 40vw;
+		padding: 2em 2em 4em 2em;
 		height: 70vh;
 		overflow: auto;
 	}

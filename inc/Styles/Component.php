@@ -106,9 +106,16 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_enqueue_style( 'wp-rig-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		}
 
-		$material_icons_url = 'https://fonts.googleapis.com/icon?family=Material+Icons&ver=2.2.0';
+		// Material icons.
+		$material_icons_url = 'https://fonts.googleapis.com/icon?family=Material+Icons&ver=6.0.1';
 		if ( ! empty( $material_icons_url ) ) {
 			wp_enqueue_style( 'wp-rig-material-icons', $material_icons_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		}
+
+		// Sendinblue styles.
+		$sendinblue_sib_styles_url = 'https://sibforms.com/forms/end-form/build/sib-styles.css';
+		if ( ! empty( $sendinblue_sib_styles_url ) ) {
+			wp_enqueue_style( 'wp-rig-sendinblue-sib-styles', $sendinblue_sib_styles_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		}
 
 		$css_uri = get_theme_file_uri( '/assets/css/' );
@@ -389,7 +396,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = array(
-			'Roboto' => array( '300', '400', '500' ),
+			'Montesserat' => array( '300', '400', '500' ),
 		);
 
 		/**
