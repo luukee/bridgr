@@ -81,16 +81,12 @@ img {
 
 .mdl-header {
 	min-width: 100vw;
-	min-height: 70vh;
+	min-height: 100vh;
 	padding: 0;
 	align-items: center;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-
-	@media (--narrow-menu-query) {
-		min-height: 100vh;
-	}
 
 	& .wp-post-image {
 		margin: 0;

@@ -30,7 +30,13 @@ require 'inc/Walker_Nav_Menu.php';
 
 		gtag('config', '<?php echo $ga_id; ?>');
 		</script>
-	<?php endif ?>
+	<?php endif; ?>
+	<?php
+	$gsc_html_tag = get_theme_mod( 'gsc_html_tag' );
+	if ( $gsc_html_tag ) :
+		echo $gsc_html_tag;
+	endif;
+	?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">

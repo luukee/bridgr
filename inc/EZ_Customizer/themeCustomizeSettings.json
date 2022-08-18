@@ -16,6 +16,12 @@
       "refresh": false
     },
     {
+      "id": "gsc_html_tag",
+      "label": "Google Search Console HTML tag",
+      "section": "global",
+      "refresh": false
+    },
+    {
       "id": "site_description",
       "label": "Site description",
       "section": "global",

@@ -115,20 +115,25 @@ input.mdl-button--colored--white {
 }
 
 /* sendinblue form css */
+.sib-form .entry__error {
+	font: var(--bodyFont);
+}
 .modal-window__content .sib-form {
 	padding-top: 0;
 }
 #sib-container {
 	padding: 0 17px;
 	background-color: transparent !important;
+	text-align: left !important;
 	& * {
 		color: var(--color-theme-white) !important;
 		font-family: var(--fontFamily);
 	}
 }
 
-.sib-text-form-block {
+.sib-text-form-block p {
 	text-align: center;
+	font: var(--captionFont);
 }
 .sib-form input::placeholder {
 	font-weight: bold;
